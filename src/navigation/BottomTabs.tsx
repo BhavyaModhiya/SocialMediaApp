@@ -9,7 +9,7 @@ const Tab = createBottomTabNavigator();
 
 export default function BottomTabs() {
     return (
-        <Tab.Navigator 
+        <Tab.Navigator
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ color, size }) => {
                     let iconName = '';
@@ -18,11 +18,22 @@ export default function BottomTabs() {
                     else if (route.name === 'Notifications') iconName = 'notifications-outline';
                     return <Icon name={iconName} size={size} color={color} />;
                 },
+                tabBarActiveTintColor: '#b3203d', 
+                tabBarInactiveTintColor: '#888', 
+                tabBarLabelStyle: {
+                    fontSize: 14, 
+                    fontWeight: '600',
+                },
+                tabBarStyle: {
+                    paddingBottom: 4,
+                    height: 60,
+                },
+                headerShown: false,
             })}
         >
-            <Tab.Screen name="Home" component={HomeScreen} options={{headerShown:false}} />
-            <Tab.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
-            <Tab.Screen name="Notifications" component={NotificationsScreen} options={{ headerShown: false }} />
+            <Tab.Screen name="Home" component={HomeScreen} />
+            <Tab.Screen name="Profile" component={ProfileScreen} />
+            <Tab.Screen name="Notifications" component={NotificationsScreen} />
         </Tab.Navigator>
     );
 }
