@@ -7,7 +7,6 @@ export default function HomeScreen() {
     const [posts, setPosts] = useState<any[]>([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
-
     useEffect(() => {
         fetchPosts();
     }, [page]);
